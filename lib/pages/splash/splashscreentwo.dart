@@ -1,11 +1,10 @@
 // ignore_for_file: sort_child_properties_last
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:reproed/pages/splash/splashscreentwo.dart';
+import 'package:reproed/pages/splash/splashscreenthree.dart';
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+class SplashScreenTwo extends StatelessWidget {
+  const SplashScreenTwo ({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +15,9 @@ class SplashScreen extends StatelessWidget {
           bottom: false,
           child: Stack(
             children: [
-              //gambar sebagai gambar tampilan disetiap landing page(Sebagai BG)
+               //gambar sebagai gambar tampilan disetiap landing page(Sebagai BG)
               Image.asset(
-                "assets/images/materi.png",
+                "assets/images/kuis.png",
                 width: MediaQuery.of(context).size.width,
                 height: 280,
               ),
@@ -52,7 +51,7 @@ class SplashScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            "PuberRepro",
+                            "Soal Latihan",
                             textAlign: TextAlign.center,
                             style: GoogleFonts.poppins(
                               textStyle: const TextStyle(
@@ -63,8 +62,8 @@ class SplashScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 12),
                           Text(
-                            "Materi yang diberikan sesuai dengan Kurikulum Merdeka yang sedang di terapkan di beberapa sekolah, seperti di SPMN 187 Jakarta.",
-                            maxLines: 5,
+                            "Soal kuis yang memberikan tantangan menarik dengan beragam pertanyaan yang relevan tentang kesehatan reproduksi, membantu siswa menguji dan meningkatkan pemahaman mereka secara interaktif.",
+                            maxLines: 7,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.poppins(
                               textStyle: const TextStyle(
@@ -86,7 +85,7 @@ class SplashScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context, 
-                         MaterialPageRoute(builder: (context) => const SplashScreenTwo(),)
+                         MaterialPageRoute(builder: (context) => const SplashScreenThree(),)
                     );
                   },
                   child: const Icon(
@@ -102,7 +101,7 @@ class SplashScreen extends StatelessWidget {
                 ),
               ),
             ],
-          ),
+          )
         ),
       ),
     );

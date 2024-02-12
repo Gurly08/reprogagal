@@ -1,26 +1,21 @@
 import 'package:flutter/material.dart';
 
-var startAligment = Alignment.topRight;
-var endAligment = Alignment.bottomLeft;
 
 //Cara Ke 2 dalam intance variabel pada gradientcontainer
 class GradientContainer extends StatelessWidget {
-  const GradientContainer(this.color1, this.color2, {super.key});
+  const GradientContainer({super.key});
 
-  final Color color1;
-  final Color color2;
-
-  @override 
+  @override
   Widget build(context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
           colors: [
-            color1,
-            color2,
-          ],
-          begin: startAligment,
-          end: endAligment,
+            Colors.deepPurple,
+            Colors.blue,
+          ], // Gradient colors
         ),
       ),
     );
