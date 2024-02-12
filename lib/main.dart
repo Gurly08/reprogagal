@@ -3,17 +3,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:reproed/pages/splash/splashscreenone.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyHomePage());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 5)).then((value) => Navigator.push(
@@ -31,8 +31,8 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
