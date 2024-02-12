@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:reproed/pages/splash/splashscreenone.dart';
 
 void main() {
-  runApp(const MyHomePage());
+  runApp(const MyApp());
 }
 
 class MyHomePage extends StatefulWidget {
@@ -25,19 +25,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -78,6 +67,17 @@ class MyApp extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: MyHomePage(),
     );
   }
 }
