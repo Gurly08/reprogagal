@@ -1,6 +1,8 @@
 // ignore_for_file: sort_child_properties_last
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:reproed/pages/loginsign/login.dart';
+import 'package:reproed/pages/loginsign/sign.dart';
 
 class SplashScreenFour extends StatelessWidget {
   const SplashScreenFour({super.key});
@@ -61,7 +63,7 @@ class SplashScreenFour extends StatelessWidget {
                             ),
                             const SizedBox(height: 12),
                             Text(
-                              "Eksplorasi kesehatan reproduksi dengan materi, latihan soal, dan edukasi. Gunakan Aplikasi ReproEd sekarang untuk pengalaman yang menyenangkan dan memberikan edukasi yang",
+                              "Eksplorasi kesehatan reproduksi dengan materi, latihan soal, dan edukasi. Gunakan Aplikasi ReproEd sekarang untuk pengalaman yang menyenangkan dan memberikan edukasi.",
                               maxLines: 7,
                               textAlign: TextAlign.center,
                               style: GoogleFonts.poppins(
@@ -74,7 +76,12 @@ class SplashScreenFour extends StatelessWidget {
                             ),
                             const SizedBox(height: 35),
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context, 
+                                    MaterialPageRoute(builder: (context) => const Login())
+                                );
+                              },
                               style: ElevatedButton.styleFrom(
                                   shape: const StadiumBorder(),
                                   elevation: 8,
@@ -109,7 +116,12 @@ class SplashScreenFour extends StatelessWidget {
                                   ),
                                 ),
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context, 
+                                        MaterialPageRoute(builder: (context) => const Sign())
+                                    );
+                                  },
                                   child: Text(
                                     "Daftar",
                                     textAlign: TextAlign.center,
