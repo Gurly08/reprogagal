@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:reproed/pages/loginsign/login.dart';
@@ -12,7 +13,7 @@ class Sign extends StatefulWidget {
 class _SignState extends State<Sign> {
   bool _obscureText = true;
   String?
-  valueChoose; // memperbaiki nama variabel yang dipilih dan membuatnya menjadi nullable
+      valueChoose; // memperbaiki nama variabel yang dipilih dan membuatnya menjadi nullable
   List<String> listItem = ['Kelas 7', 'Kelas 8', 'Kelas 9'];
   Color? lakiLakiColor = Colors.white;
   Color? perempuanColor = Colors.white;
@@ -35,7 +36,7 @@ class _SignState extends State<Sign> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 155, 33, 255),
+        backgroundColor: Colors.deepPurple,
         // appBar: AppBar(
         //   backgroundColor: const Color.fromARGB(255, 155, 33, 255),
         //   title: const Text(
@@ -55,22 +56,34 @@ class _SignState extends State<Sign> {
         //   iconTheme: const IconThemeData(color: Colors.blue),
         // ),
         body: Padding(
-          padding: const EdgeInsets.only(right: 20, left: 20, top: 45, bottom: 8),
+          padding:
+              const EdgeInsets.only(right: 20, left: 20, top: 45, bottom: 8),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 15),
-                Text(
-                  'Daftar',
-                  textAlign: TextAlign.start,
-                  style: GoogleFonts.poppins(
-                    textStyle: const TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                     ),
-                  ),
+                    const SizedBox(width: 12),
+                    Text(
+                      'Daftar',
+                      textAlign: TextAlign.start,
+                      style: GoogleFonts.poppins(
+                        textStyle: const TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 8),
                 Text(
@@ -344,83 +357,109 @@ class _SignState extends State<Sign> {
                 const SizedBox(height: 12),
 
                 Text(
-                              "Password",
-                              textAlign: TextAlign.left,
-                              style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 12),
-                            // ignore: avoid_unnecessary_containers
-                            Container(
-                              height: 50,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.blue.withOpacity(0.5),
-                                    spreadRadius: 2,
-                                    blurRadius: 3,
-                                    offset: const Offset(0, 2), // changes position of shadow
-                                  ),
-                                ],
-                              ),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  hintText: 'Masukan password',
-                                  filled: false,
-                                  fillColor: Colors.white,
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(25),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  suffixIcon: IconButton(
-                                    icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
-                                    onPressed: () {
-                                      setState(() {
-                                        _obscureText = !_obscureText;
-                                      });
-                                    },
-                                  ),
-                                ),
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                ),
-                                obscureText: _obscureText,
-                              ),
-                            ),
-
-                const SizedBox(height: 25),
-
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const Login()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                      shape: const StadiumBorder(),
-                      elevation: 8,
-                      shadowColor: Colors.black,
-                      backgroundColor: Colors.white,
-                      minimumSize: const Size.fromHeight(45)),
-                  child: Text(
-                    "Daftar",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                      textStyle: const TextStyle(
-                        fontSize: 18,
-                        color: Colors.deepPurple,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  "Password",
+                  textAlign: TextAlign.left,
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
                     ),
                   ),
                 ),
+                const SizedBox(height: 12),
+                // ignore: avoid_unnecessary_containers
+                Container(
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.blue.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 3,
+                        offset:
+                            const Offset(0, 2), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Masukan password',
+                      filled: false,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25),
+                        borderSide: BorderSide.none,
+                      ),
+                      suffixIcon: IconButton(
+                        icon: Icon(_obscureText
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                        onPressed: () {
+                          setState(() {
+                            _obscureText = !_obscureText;
+                          });
+                        },
+                      ),
+                    ),
+                    style: const TextStyle(
+                      color: Colors.black,
+                    ),
+                    obscureText: _obscureText,
+                  ),
+                ),
+
+                const SizedBox(height: 25),
+
+                AnimatedButton(
+                    text: "Daftar",
+                    color: Colors.purple,
+                    pressEvent: () {
+                      AwesomeDialog(
+                      context: context,
+                      dialogType: DialogType.success,
+                      animType: AnimType.topSlide,
+                      showCloseIcon: true,
+                      title: "Success",
+                      desc:
+                        "Selamat akun kamu sudah terdaftar, harap diingat yah passwordnya >.<",
+                      btnOkOnPress: () {
+                        Navigator.push(
+                          context,
+                            MaterialPageRoute(
+                            builder: (context) => const Login()),
+                        );
+                      },
+                    ).show();
+                  }
+                ),
+
+                // ElevatedButton(
+                //   onPressed: () {
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => const Login()),
+                // );
+                //   },
+                //   style: ElevatedButton.styleFrom(
+                //       shape: const StadiumBorder(),
+                //       elevation: 8,
+                //       shadowColor: Colors.black,
+                //       backgroundColor: Colors.white,
+                //       minimumSize: const Size.fromHeight(45)),
+                //   child: Text(
+                //     "Daftar",
+                //     textAlign: TextAlign.center,
+                //     style: GoogleFonts.poppins(
+                //       textStyle: const TextStyle(
+                //         fontSize: 18,
+                //         color: Colors.deepPurple,
+                //         fontWeight: FontWeight.w500,
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ),
