@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:reproed/pages/home/beranda/home.dart';
 import 'package:reproed/pages/loginsign/sign.dart';
 
 class Login extends StatefulWidget {
@@ -184,7 +185,12 @@ class _LoginState extends State<Login> {
                             
                             const SizedBox(height: 35),
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                      context, 
+                                        MaterialPageRoute(builder: (context) => const Home())
+                                    );
+                              },
                               style: ElevatedButton.styleFrom(
                                   shape: const StadiumBorder(),
                                   elevation: 8,
