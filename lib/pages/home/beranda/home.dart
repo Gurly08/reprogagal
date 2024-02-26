@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
+// import 'package:reproed/pages/widget/detailcard.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -66,10 +69,11 @@ class _HomeState extends State<Home> {
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(18),
+            padding: const EdgeInsets.only(right: 18, left: 18, top: 18, bottom: 35),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                
                 //tempat container poin ku dan progres belajar
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -134,17 +138,7 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                               ),
-                              
-                              Row(
-                                children: [
-                                  const LinearProgressIndicator(
-                                    value: 0.5,
-                                    backgroundColor: Colors.white,
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                      Colors.greenAccent,
-                                    ),
-                                  ),
-                                  Text(
+                              Text(
                                 '50%',
                                 style: GoogleFonts.poppins(
                                   textStyle: const TextStyle(
@@ -153,16 +147,22 @@ class _HomeState extends State<Home> {
                                   ),
                                 ),
                               ),
-                                ],
+                              const LinearProgressIndicator(
+                                value: 0.5,
+                                backgroundColor: Colors.white,
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  Colors.greenAccent,
+                                ),
                               ),
-                            ]),
+                            ]
+                          ),
                       ),
                     ),
                   ],
                 ),
 
                 const SizedBox(height: 25),
-                
+
                 //Daily Container
                 Container(
                   height: 155,
@@ -231,7 +231,7 @@ class _HomeState extends State<Home> {
                         //Deskripsi kegiatan
                         Text(
                           'Ada ulangan harian agama hari ini, wajib belajar dulu sebelum besoknya udah ulang rawr >.',
-                          maxLines: 2,
+                          maxLines: 3,
                           style: GoogleFonts.poppins(
                             textStyle: const TextStyle(
                               fontSize: 13,
@@ -244,56 +244,61 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-              
+
                 const SizedBox(height: 25),
 
-                //container materi PuberRepro1
-                Container(
-                  height: 195,
-                  width: 135,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(18),
-                    color: const Color.fromARGB(255, 1, 106, 112),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.20), // Warna bayangan
-                        spreadRadius: 5, // Jarak penyebaran bayangan
-                        blurRadius: 7, // Jarak kabut bayangan
-                        offset: const Offset(
-                            0, 3), // Perpindahan bayangan pada sumbu x dan y
-                      ),
-                    ]
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 10, left: 10, top: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset('assets/images/boy.png'),
-                        Text(
-                          'Materi',
-                          style: GoogleFonts.poppins(
-                            textStyle: const TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.normal,
-                              color: Colors.white,
+                
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Fitur Materi PuberRepro1 laki - laki
+                    Container(
+                      height: 195,
+                      width: 135,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          color: const Color.fromARGB(255, 1, 106, 112),
+                          boxShadow: [
+                            BoxShadow(
+                              color:
+                                  Colors.black.withOpacity(0.20), // Warna bayangan
+                              spreadRadius: 5, // Jarak penyebaran bayangan
+                              blurRadius: 7, // Jarak kabut bayangan
+                              offset: const Offset(
+                                  0, 3), // Perpindahan bayangan pada sumbu x dan y
                             ),
-                          ),
-                        ),
-                        Text(
-                          'PuberRepro',
-                          style: GoogleFonts.poppins(
-                            textStyle: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                          ]),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(right: 10, left: 10, top: 15),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset('assets/images/boy.png'),
+                            Text(
+                              'Materi',
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                         ElevatedButton(
+                            Text(
+                              'PuberRepro',
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            ElevatedButton(
                               onPressed: () {
                                 // Navigator.push(
-                                //   context, 
+                                //   context,
                                 //     MaterialPageRoute(builder: (context) => const Login())
                                 // );
                               },
@@ -301,7 +306,8 @@ class _HomeState extends State<Home> {
                                   shape: const StadiumBorder(),
                                   elevation: 8,
                                   shadowColor: Colors.black,
-                                  backgroundColor: const Color.fromARGB(255, 38, 206, 215),
+                                  backgroundColor:
+                                      const Color.fromARGB(255, 38, 206, 215),
                                   minimumSize: const Size(45, 15)),
                               child: Text(
                                 "Lihat",
@@ -315,13 +321,306 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                      ],
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
-                )
+
+                    //Fitur Materi Puberrepro2 perempuan
+                     Container(
+                      height: 195,
+                      width: 135,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          color: Colors.pink[300],
+                          boxShadow: [
+                            BoxShadow(
+                              color:
+                                  Colors.black.withOpacity(0.20), // Warna bayangan
+                              spreadRadius: 5, // Jarak penyebaran bayangan
+                              blurRadius: 7, // Jarak kabut bayangan
+                              offset: const Offset(
+                                  0, 3), // Perpindahan bayangan pada sumbu x dan y
+                            ),
+                          ]),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(right: 10, left: 10, top: 15),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset('assets/images/girl.png'),
+                            const SizedBox(height: 12),
+                            Text(
+                              'Materi',
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'PuberRepro',
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                // Navigator.push(
+                                //   context,
+                                //     MaterialPageRoute(builder: (context) => const Login())
+                                // );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  shape: const StadiumBorder(),
+                                  elevation: 8,
+                                  shadowColor: Colors.black,
+                                  backgroundColor:
+                                      Colors.pink[400],
+                                  minimumSize: const Size(45, 15)),
+                              child: Text(
+                                "Lihat",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    fontSize: 8,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 25),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    //Fitur Kuis
+                    Container(
+                      height: 205,
+                      width: 135,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          color: Colors.teal[400],
+                          boxShadow: [
+                            BoxShadow(
+                              color:
+                                  Colors.black.withOpacity(0.20), // Warna bayangan
+                              spreadRadius: 5, // Jarak penyebaran bayangan
+                              blurRadius: 7, // Jarak kabut bayangan
+                              offset: const Offset(
+                                  0, 3), // Perpindahan bayangan pada sumbu x dan y
+                            ),
+                          ]),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(right: 10, left: 10, top: 15),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset('assets/images/wpkuis.png',height: 78,),
+                            Text(
+                              'Tugas',
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 14.5,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'Latihan Soal',
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              '50%',
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 6,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                            const LinearProgressIndicator(
+                                value: 0.5,
+                                backgroundColor: Colors.white,
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  Colors.yellow,
+                                ),
+                              ),
+                            ElevatedButton(
+                              onPressed: () {
+                                // Navigator.push(
+                                //   context,
+                                //     MaterialPageRoute(builder: (context) => const Login())
+                                // );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  shape: const StadiumBorder(),
+                                  elevation: 8,
+                                  shadowColor: Colors.black,
+                                  backgroundColor:
+                                      Colors.green[400],
+                                  minimumSize: const Size(45, 15)),
+                              child: Text(
+                                "Lihat",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    fontSize: 8,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    //Fitur Karaktaku
+                     Container(
+                      height: 205,
+                      width: 135,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          color: Colors.yellow[600],
+                          boxShadow: [
+                            BoxShadow(
+                              color:
+                                  Colors.black.withOpacity(0.20), // Warna bayangan
+                              spreadRadius: 5, // Jarak penyebaran bayangan
+                              blurRadius: 7, // Jarak kabut bayangan
+                              offset: const Offset(
+                                  0, 3), // Perpindahan bayangan pada sumbu x dan y
+                            ),
+                          ]),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(right: 10, left: 10, top: 15),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset('assets/images/rbkaraktaku.png'),
+                            Text(
+                              'Karaktaku',
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.purple[400],
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'Aku Karaktaku, mari bersama - sama menjelajahi dan mencari solusi untuk lebih mengenal diri kita sendiri',
+                              maxLines: 4,
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                  fontSize: 6.5,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.indigo,
+                                ),
+                              ),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                // Navigator.push(
+                                //   context,
+                                //     MaterialPageRoute(builder: (context) => const Login())
+                                // );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  shape: const StadiumBorder(),
+                                  elevation: 8,
+                                  shadowColor: Colors.black,
+                                  backgroundColor:
+                                      Colors.yellow[700],
+                                  minimumSize: const Size(45, 15)),
+                              child: Text(
+                                "Lihat",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    fontSize: 8,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: const Color.fromARGB(255, 241, 234, 255),
+          color: Colors.deepPurple,
+          animationDuration: const Duration(milliseconds: 300),
+          onTap: (index) {
+            // print(index);
+          },
+          items: const [
+            CurvedNavigationBarItem(
+              child: Icon(
+                Icons.home,
+                color: Colors.white,
+              ),
+            ),
+            CurvedNavigationBarItem(
+              child: Icon(
+                Icons.article_outlined,
+                color: Colors.white,
+              ),
+            ),
+            CurvedNavigationBarItem(
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+            ),
+            CurvedNavigationBarItem(
+              child: Icon(
+                Icons.key_outlined,
+                color: Colors.white,
+              ),
+            ),
+            CurvedNavigationBarItem(
+              child: Icon(
+                Icons.person_2_outlined,
+                color: Colors.white,
+              ),
+            ),
+          ]
         ),
       ),
     );
