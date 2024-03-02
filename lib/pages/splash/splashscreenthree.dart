@@ -51,15 +51,15 @@ class SplashScreenThree extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            "Karaktaku",
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                  fontSize: 35,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                              "Karaktaku",
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                    fontSize: 35,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
-                          ),
                           const SizedBox(height: 12),
                           Text(
                             "Yuk kenalan dengan Karaktaku. Dia akan membantu dan menemanimu untuk lebih mengenal diri kamu, serta mencintai diri kamu sendiri.",

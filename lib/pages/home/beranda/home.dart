@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
+import 'package:reproed/pages/puberreproman.dart/pubrepro.dart';
 // import 'package:reproed/pages/widget/detailcard.dart';
 
 class Home extends StatefulWidget {
@@ -297,10 +298,10 @@ class _HomeState extends State<Home> {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                // Navigator.push(
-                                //   context,
-                                //     MaterialPageRoute(builder: (context) => const Login())
-                                // );
+                                Navigator.push(
+                                  context,
+                                    MaterialPageRoute(builder: (context) => const PubreproMan())
+                                );
                               },
                               style: ElevatedButton.styleFrom(
                                   shape: const StadiumBorder(),

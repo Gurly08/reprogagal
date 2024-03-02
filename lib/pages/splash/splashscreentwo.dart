@@ -1,6 +1,7 @@
 // ignore_for_file: sort_child_properties_last
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:reproed/pages/splash/splashscreenfour.dart';
 import 'package:reproed/pages/splash/splashscreenthree.dart';
 
 class SplashScreenTwo extends StatelessWidget {
@@ -47,17 +48,39 @@ class SplashScreenTwo extends StatelessWidget {
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsets.only(left: 15, right: 15, top: 45),
+                          const EdgeInsets.only(left: 15, right: 15, top: 20),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Soal Latihan",
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.poppins(
-                              textStyle: const TextStyle(
-                                  fontSize: 35,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context, 
+                                  MaterialPageRoute(builder: (context) => const SplashScreenFour(),)
+                              );
+                            },
+                            child: Text(
+                              "skip",
+                              textAlign: TextAlign.start,
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white70,
+                                  ),
+                                ),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Soal Latihan",
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.poppins(
+                                textStyle: const TextStyle(
+                                    fontSize: 35,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                           ),
                           const SizedBox(height: 12),
