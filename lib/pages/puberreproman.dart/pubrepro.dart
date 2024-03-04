@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
+import 'package:reproed/data/data%20card%20puberrepro%20man/localdata_card_puberrepro.dart';
+import 'package:reproed/pages/widget/detailcard.dart';
 
-class PubreproMan extends StatelessWidget {
-  const PubreproMan({super.key});
+class PubreproMan extends StatefulWidget {
+  const PubreproMan({Key? key}) : super(key: key);
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _PubreproManState createState() => _PubreproManState();
+}
+
+class _PubreproManState extends State<PubreproMan> {
+  bool isPubertasSelected = true;
 
   @override
   Widget build(BuildContext context) {
@@ -22,21 +34,165 @@ class PubreproMan extends StatelessWidget {
             ),
           ),
           centerTitle: true,
-          leading: const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black),
+          leading:
+              const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black),
         ),
-        body: Column(
-          children: [
-              Text(
-              'ini materi',
-              style: GoogleFonts.poppins(
-                textStyle: const TextStyle(
-                  fontSize: 10,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.white,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10, left: 18, right: 18),
+            child: Column(
+              children: [
+                //Button kategori materi
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                      onPressed: !isPubertasSelected
+                          ? null
+                          : () {
+                              setState(() {
+                                isPubertasSelected = true;
+                              });
+                              //route
+                            },
+                      style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        elevation: isPubertasSelected ? 8 : 0,
+                        shadowColor: Colors.white,
+                        backgroundColor: isPubertasSelected
+                            ? Colors.teal[500]
+                            : Colors.teal[
+                                400], // Ganti dengan warna yang lebih transparan
+                        minimumSize: const Size(115, 25),
+                      ),
+                      child: Text(
+                        'Pubertas',
+                        style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: isPubertasSelected
+                          ? null
+                          : () {
+                              setState(() {
+                                isPubertasSelected = false;
+                              });
+                              //route
+                            },
+                      style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        elevation: !isPubertasSelected ? 8 : 0,
+                        shadowColor: Colors.white,
+                        backgroundColor: !isPubertasSelected
+                            ? Colors.teal[400]
+                            : Colors.teal[400]!.withOpacity(0.5),
+                        minimumSize: const Size(115, 25),
+                      ),
+                      child: Text(
+                        'Reproduksi',
+                        style: GoogleFonts.poppins(
+                          textStyle: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.white60,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
+
+                const SizedBox(height: 20),
+
+                Text(
+                  "Materi Pembelajaran",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      fontSize: 25,
+                      color: Colors.black87,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                Text(
+                  "Ayu mulai membaca agar kamu semakin tau!",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      fontSize: 13,
+                      color: Colors.deepPurple,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 25),
+                SizedBox(
+                  height: 350,
+                  child: ListView.separated(
+                    separatorBuilder: (context, index) =>
+                        const SizedBox(width: 20),
+                    itemCount: cardpuberepro.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return DetailCard(
+                        pubereproData: cardpuberepro[index],
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: const Color.fromARGB(255, 154, 208, 194),
+          color: Colors.deepPurple,
+          animationDuration: const Duration(milliseconds: 300),
+          onTap: (index) {
+            // print(index);
+          },
+          items: const [
+            CurvedNavigationBarItem(
+              child: Icon(
+                Icons.home,
+                color: Colors.white,
               ),
             ),
-          ],
+            CurvedNavigationBarItem(
+              child: Icon(
+                Icons.article_outlined,
+                color: Colors.white,
+              ),
+            ),
+            CurvedNavigationBarItem(
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+            ),
+            CurvedNavigationBarItem(
+              child: Icon(
+                Icons.key_outlined,
+                color: Colors.white,
+              ),
+            ),
+            CurvedNavigationBarItem(
+              child: Icon(
+                Icons.person_2_outlined,
+                color: Colors.white,
+              ),
+            ),
+          ]
         ),
       ),
     );
