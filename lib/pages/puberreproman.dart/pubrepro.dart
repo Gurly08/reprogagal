@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
-import 'package:reproed/data/data%20card%20puberrepro%20man/localdata_card_puberrepro.dart';
+import 'package:reproed/data/datacardpuberreproman/localdata_card_puberrepro.dart';
 import 'package:reproed/pages/widget/detailcard.dart';
 
 class PubreproMan extends StatefulWidget {
