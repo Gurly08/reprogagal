@@ -3,6 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:reproed/data/datacardpuberreproman/localdata_card_puberrepro.dart';
+import 'package:reproed/pages/home/beranda/home.dart';
+import 'package:reproed/pages/puberreproman.dart/subtemaone/subtemaone.dart';
+import 'package:reproed/pages/puberreproman.dart/subtematwo/subtematwo.dart';
 import 'package:reproed/pages/widget/detailcard.dart';
 
 class PubreproMan extends StatefulWidget {
@@ -34,8 +37,14 @@ class _PubreproManState extends State<PubreproMan> {
             ),
           ),
           centerTitle: true,
-          leading:
-              const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black),
+          leading: IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Home()));
+              },
+              icon:const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black)),
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -145,6 +154,22 @@ class _PubreproManState extends State<PubreproMan> {
                     itemBuilder: (context, index) {
                       return DetailCard(
                         pubereproData: cardpuberepro[index],
+                        onTap: () {
+                          if (cardpuberepro[index].subTheme == 'Subtemaone') {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Subtemaone()),
+                            );
+                          } else if (cardpuberepro[index].subTheme ==
+                              'Subtematwo') {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Subtematwo()),
+                            );
+                          }
+                        },
                       );
                     },
                   ),
@@ -153,47 +178,45 @@ class _PubreproManState extends State<PubreproMan> {
             ),
           ),
         ),
-
         bottomNavigationBar: CurvedNavigationBar(
-          backgroundColor: const Color.fromARGB(255, 154, 208, 194),
-          color: Colors.deepPurple,
-          animationDuration: const Duration(milliseconds: 300),
-          onTap: (index) {
-            // print(index);
-          },
-          items: const [
-            CurvedNavigationBarItem(
-              child: Icon(
-                Icons.home,
-                color: Colors.white,
+            backgroundColor: const Color.fromARGB(255, 154, 208, 194),
+            color: Colors.deepPurple,
+            animationDuration: const Duration(milliseconds: 300),
+            onTap: (index) {
+              // print(index);
+            },
+            items: const [
+              CurvedNavigationBarItem(
+                child: Icon(
+                  Icons.home,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            CurvedNavigationBarItem(
-              child: Icon(
-                Icons.article_outlined,
-                color: Colors.white,
+              CurvedNavigationBarItem(
+                child: Icon(
+                  Icons.article_outlined,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            CurvedNavigationBarItem(
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
+              CurvedNavigationBarItem(
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            CurvedNavigationBarItem(
-              child: Icon(
-                Icons.key_outlined,
-                color: Colors.white,
+              CurvedNavigationBarItem(
+                child: Icon(
+                  Icons.key_outlined,
+                  color: Colors.white,
+                ),
               ),
-            ),
-            CurvedNavigationBarItem(
-              child: Icon(
-                Icons.person_2_outlined,
-                color: Colors.white,
+              CurvedNavigationBarItem(
+                child: Icon(
+                  Icons.person_2_outlined,
+                  color: Colors.white,
+                ),
               ),
-            ),
-          ]
-        ),
+            ]),
       ),
     );
   }
