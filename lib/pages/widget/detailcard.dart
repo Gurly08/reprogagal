@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:reproed/models/modelpubereproman/model_cardpuberepro.dart';
+import 'package:reproed/pages/puberreproman.dart/subtemaone/subtemaone.dart';
+import 'package:reproed/pages/puberreproman.dart/subtematwo/subtematwo.dart';
 
 class DetailCard extends StatefulWidget {
   const DetailCard({required this.pubereproData, super.key});
@@ -31,11 +33,11 @@ class _DetailCardState extends State<DetailCard> {
             Align(
               alignment: Alignment.center,
               child: Image.asset(
-                widget.pubereproData.imagePath, 
+                widget.pubereproData.imagePath,
                 height: 180,
-                ),
               ),
-              const SizedBox(height: 18),
+            ),
+            const SizedBox(height: 18),
             Align(
               alignment: AlignmentDirectional.centerStart,
               child: Row(
@@ -80,28 +82,33 @@ class _DetailCardState extends State<DetailCard> {
               alignment: Alignment.centerLeft,
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //     MaterialPageRoute(builder: (context) => const Login())
-                  // );
+                  // Navigasi ke halaman PubertasPage jika 'Pubertas' dipilih
+                  if (widget.pubereproData.subTheme == 'Subtemaone') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Subtemaone()),
+                    );
+                  }
+                  // Navigasi ke halaman ReproduksiPage jika 'Reproduksi' dipilih
+                  else if (widget.pubereproData.subTheme == 'Subtematwo') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Subtematwo()),
+                    );
+                  }
                 },
-                style: ElevatedButton.styleFrom(
-                    shape: const StadiumBorder(),
-                    elevation: 8,
-                    shadowColor: Colors.black,
-                    backgroundColor: Colors.teal[200],
-                    minimumSize: const Size(65, 25)),
-                child: Text(
-                  "Lihat",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.poppins(
+                child: Text('Lihat',
+                    style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
-                      fontSize: 8,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
                     ),
                   ),
                 ),
+                // Widget lainnya ...
               ),
             ),
           ],
