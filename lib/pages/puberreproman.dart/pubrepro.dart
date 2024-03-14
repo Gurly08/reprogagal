@@ -8,6 +8,25 @@ import 'package:reproed/pages/puberreproman.dart/subtemaone/subtemaone.dart';
 import 'package:reproed/pages/puberreproman.dart/subtematwo/subtematwo.dart';
 import 'package:reproed/pages/widget/detailcard.dart';
 
+final Map<String, Widget Function()> subTemaRoutes = {
+  'Subtemaone': () => const Subtemaone(),
+  'Subtematwo': () => const Subtematwo(),
+};
+
+void navigateToSubTema(BuildContext context, String subTheme) {
+  final routeBuilder = subTemaRoutes[subTheme];
+  if (routeBuilder != null) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => routeBuilder()),
+    );
+  } else {
+    // Handle case when subTheme is not found
+    // ignore: avoid_print
+    print('Subtheme $subTheme not found.');
+  }
+}
+
 class PubreproMan extends StatefulWidget {
   const PubreproMan({Key? key}) : super(key: key);
 
@@ -155,20 +174,8 @@ class _PubreproManState extends State<PubreproMan> {
                       return DetailCard(
                         pubereproData: cardpuberepro[index],
                         onTap: () {
-                          if (cardpuberepro[index].subTheme == 'Subtemaone') {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Subtemaone()),
-                            );
-                          } else if (cardpuberepro[index].subTheme ==
-                              'Subtematwo') {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Subtematwo()),
-                            );
-                          }
+                          final subTheme = cardpuberepro[index].subTheme;
+                          navigateToSubTema(context, subTheme);
                         },
                       );
                     },
