@@ -186,34 +186,36 @@ class _HomeState extends State<Home> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Image.asset('assets/images/daily.png'),
-                            const SizedBox(width: 5),
-                            Text(
-                              'Jadwal Hari Ini',
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  fontSize: 12.5,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.blue[900],
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 70),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Lihat Detail',
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Image.asset('assets/images/daily.png'),
+                              const SizedBox(width: 5),
+                              Text(
+                                'Jadwal Hari Ini',
                                 style: GoogleFonts.poppins(
-                                  textStyle: const TextStyle(
-                                    fontSize: 10,
-                                    color: Colors.black54,
+                                  textStyle: TextStyle(
+                                    fontSize: 12.5,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.blue[900],
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                              const SizedBox(width: 60),
+                              TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  'Lihat Detail',
+                                  style: GoogleFonts.poppins(
+                                    textStyle: const TextStyle(
+                                      fontSize: 10,
+                                      color: Colors.black54,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         //Judul Jadwal
                         Text(

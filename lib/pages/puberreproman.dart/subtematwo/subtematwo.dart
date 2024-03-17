@@ -5,8 +5,8 @@ class Subtematwo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('data',style: TextStyle(color: Colors.deepPurple),),
+    return  const Center(
+      child: Text('Ini halaman subtema dua',style: TextStyle(color: Colors.deepPurple),),
     );
   }
 }

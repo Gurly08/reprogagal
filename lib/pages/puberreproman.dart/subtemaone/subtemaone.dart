@@ -11,7 +11,7 @@ class _SubtemaoneState extends State<Subtemaone> {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('data',style: TextStyle(color: Colors.deepPurple),),
+      child: Text('Ini halaman subtema satu',style: TextStyle(color: Colors.deepPurple),),
     );
   }
 }
