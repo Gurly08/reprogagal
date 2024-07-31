@@ -4,13 +4,11 @@ import 'package:reproed/models/modelpubereproman/model_cardpuberepro.dart';
 
 class DetailCard extends StatefulWidget {
   const DetailCard({
-    required this.pubereproData, 
-    required this.onTap, 
+    required this.pubereproData,
   Key? key}) : super(key: key);
   
   final ModelPuberepro pubereproData;
-  final VoidCallback onTap;
-
+  
   @override
   State<DetailCard> createState() => _DetailCardState();
 }
@@ -75,7 +73,9 @@ class _DetailCardState extends State<DetailCard> {
             Align(
               alignment: Alignment.centerLeft,
               child: ElevatedButton(
-                onPressed: widget.onTap, // Menggunakan onTap yang sudah ada
+                onPressed: () {
+                  
+                }, // Menggunakan onTap yang sudah ada
                 style: ElevatedButton.styleFrom(
                   shape: const StadiumBorder(),
                   elevation: 8,
